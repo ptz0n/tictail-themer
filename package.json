@@ -1,0 +1,21 @@
+{
+  "name": "tictail-themer",
+  "version": "1.0.0",
+  "description": "Build and test your Tictail theme.",
+  "main": "server.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "tictail",
+    "theme"
+  ],
+  "author": "Erik Eng <erik.eng@tictail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-prompt": "^0.1.1",
+    "gulp-util": "^3.0.1",
+    "request": "^2.48.0"
+  }
+}
