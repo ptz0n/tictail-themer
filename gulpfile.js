@@ -20,4 +20,9 @@ gulp.task('config', function () {
         }));
 });
 
+// TODO: Watch theme.mustache,*.js to reload browser
+// TODO: Watch .css and inject new styles
+
 gulp.task('default', []);
+
+gulp.task('build', []);

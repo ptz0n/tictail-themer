@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>
+            {{#list_page}}{{#navigation}}{{#is_current}}{{label}} -{{/is_current}}{{/navigation}}{{/list_page}}
+            {{#product_page}}{{#product}}{{title}} -{{/product}}{{/product_page}}
+            {{#about_page}}About Us -{{/about_page}}
+            {{#support_page}}Contact Us -{{/support_page}}
+            {{store_name}}
+        </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    <body>
+        <nav role="navigation">
+            <ul class="navigation">
+                <li{{#on_index}} class="current"{{/on_index}}>
+                    <a href="/">Home</a>
+                </li>
+                {{#navigation}}
+                    <li{{#is_current}} class="current"{{/is_current}}>
+                        <a href="{{url}}">{{label}}</a>
+                    </li>
+                {{/navigation}}
+                <li{{#about_page}} class="current"{{/about_page}}>
+                    <a href="/about">About</a>
+                </li>
+                <li{{#support_page}} class="current"{{/support_page}}>
+                    <a href="/support">Support</a>
+                </li>
+            </ul>
+            {{#navigation}}{{#is_current}}{{#children?}}
+                <ul class="navigation--children">
+                    {{#children}}
+                        <li{{#is_current}} class="current"{{/is_current}}>
+                            <a href="{{url}}">{{label}}</a>
+                        </li>
+                    {{/children}}
+                </ul>
+            {{/children?}}{{/is_current}}{{/navigation}}
+        </nav>
+
+        {{#product_page}}
+            {{#product}}
+                <h1>{{title}}</h1>
+            {{/product}}
+        {{/product_page}}
+
+        <footer role="contentinfo">
+            <ul class="navigation">
+                <li><a href="{{store_url}}/about">About</a></li>
+                <li>{{#terms}}Terms{{/terms}}</li>
+                <li>{{#return_policy}}Returns{{/return_policy}}</li>
+                {{#store_blog_url}}<li><a href="{{store_blog_url}}">Blog</a></li>{{/store_blog_url}}
+                <li><a href="{{store_url}}/contact">Contact</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

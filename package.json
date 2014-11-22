@@ -10,12 +10,23 @@
     "tictail",
     "theme"
   ],
-  "author": "Erik Eng <erik.eng@tictail.com>",
+  "author": {
+    "name": "Erik Eng",
+    "email": "erik.eng@tictail.com",
+    "url": "https://github.com/ptz0n"
+  },
+  "repository": {
+    "url": "https://github.com/ptz0n/tictail-themer.git"
+  },
   "license": "MIT",
   "devDependencies": {
+    "consolidate": "^0.10.0",
+    "express": "^4.10.2",
     "gulp": "^3.8.10",
     "gulp-prompt": "^0.1.1",
     "gulp-util": "^3.0.1",
-    "request": "^2.48.0"
+    "mustache": "^0.8.2",
+    "request": "^2.48.0",
+    "underscore": "^1.7.0"
   }
 }
