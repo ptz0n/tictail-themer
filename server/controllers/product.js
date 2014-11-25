@@ -1,19 +1,23 @@
-var _ = require('underscore');
+var product = require('./../models/product'),
+    merge   = require('merge');
 
-/**
- * Shop Index
- *
- * GET /
- */
-exports.index = function(req, res) {
-
+exports.index = function(req, res, next) {
     var data = {
         list_page: {
             on_index: true,
-            no_current_navigation: true
+            no_current_navigation: true,
         }
     };
+    merge.recursive(res.data, data);
+    next();
+}
 
-    _.extend(data, req.app.get('store'));
-    return res.render('theme', data);
+exports.list = function(req, res, next) {
+    var data = {
+        list_page: {
+            products: product.list()
+        }
+    };
+    merge.recursive(res.data, data);
+    next();
 }

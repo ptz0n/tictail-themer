@@ -35,6 +35,7 @@ var app  = require('express')();
 app.engine('mustache', require('consolidate').mustache);
 app.set('view engine', 'mustache');
 app.set('views', './');
+app.disable('etag');
 
 app.set('store', require('./server/models/store')());
 

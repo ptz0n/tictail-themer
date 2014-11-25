@@ -1,9 +1,9 @@
 var categories = require('./../../data/categories.json'),
+    store      = require('./../../data/store.json'),
     util       = require('util');
 
-module.exports = function(app) {
+module.exports = function() {
     var data = {};
-
     data.terms = function() {
         return function(label) {
             return util.format(
@@ -13,7 +13,6 @@ module.exports = function(app) {
             );
         }
     }
-
     data.return_policy = function() {
         return function(label) {
             return util.format(
@@ -23,6 +22,5 @@ module.exports = function(app) {
             );
         }
     }
-
     return data;
 }

@@ -25,6 +25,7 @@
     "gulp": "^3.8.10",
     "gulp-prompt": "^0.1.1",
     "gulp-util": "^3.0.1",
+    "merge": "^1.2.0",
     "mustache": "^0.8.2",
     "request": "^2.48.0",
     "underscore": "^1.7.0"
