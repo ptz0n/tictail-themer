@@ -2,23 +2,29 @@ var util     = require('util'),
     _        = require('underscore'),
     products = require('./../../data/products.json');
 
+var price_to_major = function(amount, currency) {
+    var digits = currency.toLowerCase() == 'jpy' ? 0 : 2;
+    return amount / Math.pow(10, digits);
+}
+
 var index = {};
 products = _.map(products, function(product) {
-    data = {
+    var price = price_to_major(product.price, product.currency);
+    var data = {
         title: product.title,
         description: product.description,
         url: util.format('product/%s', product.slug),
         absolute_url: util.format('/product/%s', product.slug),
         identifier: product.id,
-        price: product.price,
-        price_without_currency: product.price,
-        price_with_currency: util.format('%d %s', product.price, product.currency),
+        price: util.format('%s %s', price.toFixed(2), product.currency),
+        price_without_currency: price,
+        price_with_currency: util.format('%d %s', price, product.currency),
         currency_code: product.currency,
         quantity_sum: product.quantity,
         is_quantity_unlimited: product.unlimited,
         in_stock: product.quantity || product.unlimited,
         out_of_stock: !product.quantity && !product.unlimited
-    }
+    };
     // data.primary_image
     // data.all_images
     // data.slideshow-<size>
@@ -42,5 +48,5 @@ exports.list = function() {
 }
 
 exports.get = function(slug) {
-    return slug in slugs ? slugs[slug] : false;
+    return slug in index ? index[slug] : false;
 }

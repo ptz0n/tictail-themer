@@ -21,3 +21,17 @@ exports.list = function(req, res, next) {
     merge.recursive(res.data, data);
     next();
 }
+
+exports.page = function(req, res, next) {
+    var product_data = product.get(req.params.slug);
+    if(!product_data) {
+        res.statusCode = 404;
+    }
+    var data = {
+        product_page: {
+            product: product_data
+        }
+    };
+    merge.recursive(res.data, data);
+    next();
+}
